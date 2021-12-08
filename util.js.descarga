@@ -1,0 +1,106 @@
+/**
+ * id: nombre del elemento
+ */
+function muestraDiv(id) {
+    document.getElementById(id).style.display="";
+    
+
+}
+
+/**
+ * id: nombre del elemento
+ */
+function escondeDiv(id) {
+    document.getElementById(id).style.display="none";
+}
+
+/*
+ * Permite Escribir solo numeros
+ */
+function acceptNum(e){
+    // Netscape/Firefox/Opera
+    if( e.which!=8 && e.which!=0 && (e.which<48 || e.which>57)) {
+        return false;
+    }else if(window.event){ // IE
+        if( e.keyCode!=8 && e.keyCode!=0 && (e.keyCode<48 || e.keyCode>57)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+jQuery.fn.ForceNumericOnly =
+function()
+{
+    return this.each(function()
+    {
+        $(this).keydown(function(e)
+        {
+            var key = e.charCode || e.keyCode || 0;
+            // allow backspace, tab, delete, enter, arrows, numbers and keypad numbers ONLY
+            // home, end, period, and numpad decimal
+            return (
+                key == 8 || 
+                key == 9 ||
+                key == 13 ||
+                key == 46 ||
+                key == 110 ||
+                key == 190 ||
+                (key >= 35 && key <= 40) ||
+                (key >= 48 && key <= 57) ||
+                (key >= 96 && key <= 105));
+        });
+    });
+};
+
+function upperCase(x){
+    var y=document.getElementById(x).value;
+    if (y.length>0 && y.charAt(y.length-1)!="*")
+        document.getElementById(x).value=y.toUpperCase();
+}
+
+/**
+ * Seleeciona el valor en un objeto de tipo radio button
+ */
+function selectRadioButton(valSelected, nameObj){
+    var radioObj = document.getElementsByName(nameObj);
+    for(var i = 0; i < radioObj.length; i++) {
+        if( radioObj[i].value.toUpperCase() == valSelected.toUpperCase()){
+            radioObj[i].checked = true;
+        }
+    }
+}
+
+//dojo.ready(function () {
+//    // connect to the onKeyPress event of all dojo select widgets.
+//    dojo.query('.dijitSelect').map(dijit.byNode).connect('onKeyPress', function (e) {
+//        try {
+//            // get handle to the key pressed
+//            var key = (String.fromCharCode((dojo.isIE) ? e.keyCode : e.which)).toUpperCase();
+//            var value = null;
+//            var selected = false;
+//            // loop the select options
+//            dojo.some(this.options, function (option) {
+//                // if the option label starts with the pressed key...
+//                if (option.label.substring(0,1).toUpperCase() == key) {
+//                    // ...and the option is selected then record that there is already a selected option
+//                    if (option.selected) {
+//                        selected = true;
+//                    // ...else there is no value (first) or we have already found one selected
+//                    } else if (!value || selected) {
+//                        // store the value of option
+//                        value = option.value;
+//                        // return the value of selected - the loop will break if true (no more processing).
+//                        return selected;
+//                    }
+//                }
+//            });
+//            // if we obtained an option value then set it on the widget.
+//            if (value) {
+//                this.set('value', value);
+//            }
+//        } catch (e) {
+//            console.log(e);
+//        }
+//    });
+//});

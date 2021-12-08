@@ -1,0 +1,327 @@
+/* 
+    Document   : siga
+    Created on : 03-jun-2014, 16:37:31
+    Author     : Patricia Benitez <pbenitez@cinvestav.mx>
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.metro .label {
+    background-color: transparent;
+    width: 15%;
+    text-align: left;
+}
+
+.span7 .label {
+    background-color: transparent;
+    width: 100%;
+    text-align: left;
+}
+
+.span5 .label {
+    background-color: transparent;
+    width: 100%;
+    text-align: left;
+}
+
+.span5 table{
+    width: 100%;
+    border: 1px #CCC solid;
+    color:  #5c5c5c;
+}
+.span5 th.par{
+    background-color: #CCC;
+    height: 30px;
+    padding: 5px;
+}
+.span5 th.impar{
+    background-color: #E6E6E6;
+    height: 30px;
+    padding: 5px;
+}
+.span5 td{
+    padding: 5px;
+  }
+.span7 table{
+    width: 100%;
+    border: 1px #CCC solid;
+}
+.span7 th{
+    background-color: #ccc;
+    color: #FFF;
+}
+
+.encabezadoTabla th{
+    background-color: #FE6567;
+    color: #FFF;
+}
+
+.span7 td input{
+    border: 1px #d9d9d9 solid;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    z-index: 1;
+    -webkit-appearance: none;
+}
+
+.span7 .agregar{
+    width: 30%;
+    font-family: inherit;
+    font-size: 100%;
+    padding: .5em 1em;
+    color: #444;
+    color: rgba(0,0,0,.8);
+    border: 1px solid #999;
+    border: 0 rgba(0,0,0,0);
+    background-color: #E6E6E6;
+    text-decoration: none;
+    border-radius: 2px;
+    margin-top: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.span12 .label {
+    background-color: transparent;
+    width: 100%;
+    text-align: left;
+}
+
+/* Permite la alineación del formulario en dos columnas */
+.metro .input-control.text input,
+.metro .input-control.password input,
+.metro .input-control.file input,
+.metro .input-control.email input,
+.metro .input-control.tel input,
+.metro .input-control.number input {
+
+    margin-bottom: 15px;
+    width: 80%;
+}
+
+/* Permite la alineación del formulario en dos columnas */
+.metro .errorLabel {
+    display: inline-block;
+    padding: 3px 5px;
+    margin: 0;
+    font-size: 90%;
+    font-weight: normal !important;
+    line-height: 90%;
+    background-color: transparent;
+    width: 15%;
+    font-weight: bold;
+}
+
+.metro .wwerr {
+    display: none;
+}
+
+
+.metro input[type="button"], .metro input[type="submit"], .metro input[type="reset"] {
+    margin-left: auto;
+    margin-right: auto 
+}
+
+.metro fieldset{
+    padding-bottom: 1em;
+}
+
+.metro fieldset.catalogos{
+    border: 1px #818186 solid;
+    padding: 5px;
+    margin: 20px;
+}
+
+
+.metro .input-control.select select, .metro .input-control.textarea select, 
+.metro .input-control.select textarea, .metro .input-control.textarea textarea {
+    width: 80% !important;
+}
+
+.metro .input-control-custom text {
+    width: 30% !important;
+    text-align: right;
+}
+
+.metro .input-control-custom2 text {
+    width: 200px !important;
+    text-align: right;
+}
+
+#resultado .errorMessage {
+    text-align: right;
+    color: red;
+    list-style-type: none;
+}
+
+.messageError{
+    color: red!important;
+    list-style-type: none;
+}
+
+.error .valid{
+    color: red;
+}
+
+.error {
+    color: red;
+    display: inline-block;
+    padding: 3px 5px;
+    margin: 0;
+    font-size: 90%;
+    font-weight: normal !important;
+    line-height: 90%;
+    font-weight: bold;
+}
+
+.metro h1 {
+    height: 85px;
+    width: 100%;
+    background: url(/resources/images/login/pleca.jpg);
+    color:#fff;
+    font-size: 2.0em !important;
+        background-color: #007a88;
+}
+
+.metro h1.morado{
+    height: 42px;
+    width: 100%;
+    /*background: url(/resources/images/login/pleca.jpg) ;*/
+    color:#fff;
+    font-size: 1.8em !important;
+    padding-left: 10px;
+}
+
+.metro input[type="button"], .metro input[type="submit"], .metro input[type="reset"] {
+    background-color: #1D70B7!important;
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+.metro .button {
+    background-color: #1D70B7!important;
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+
+.fileTable { display: table; width: 100%; }
+.fileTable #row { display: table-row;   }
+.fileTable #col { display: table-cell; text-align: left; vertical-align: top; 	 }
+.fileTable #colIcon {
+    display: table-cell;
+    text-align: left;
+    /*    vertical-align: middle;
+        padding-right: 15%;	 */
+}
+.fileTable #col label { width: 100% }
+
+.messageSuccess {
+    color: #008800!important;
+    list-style-type: none;
+}
+
+.metro legend {
+
+    font-size: 14.5pt!important;
+    color:gray!important;
+    margin-bottom: 4pt!important;
+    /*    border-bottom: 0px!important;*/
+}
+
+.salir{
+    /*    background-image: url(/resources/customFilesApps/imss/salir.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 33px;
+        width: 78px;
+        text-align: center;
+        padding-left: 0px;
+        padding-right: 55px;
+        float: right;
+        position: relative;
+        top: 10px;
+        z-index: 1;*/
+    cursor: pointer;
+
+}
+
+.radioBtn label {
+    width: 200px;
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.firmas {
+    border-collapse: separate!important;
+    border-spacing: 10px!important;
+}
+
+.firmas td {
+    padding: 10px;
+    border: 1px solid #000;
+    padding-top: 50px!important;
+    text-align: center;
+  }
+
+  .encabezadoTabla-negritas td{
+      color: #818186;
+}
+
+.aprobado {
+    color: #93c01F;
+}
+
+.print {
+     position: fixed;
+     overflow: auto;
+     width: 100%;
+     height: 100%;
+     z-index: 100000; /* CSS doesn't support infinity */
+
+     /* Any other Print Properties */
+}
+
+#menu-index ul{
+      color: #FFF;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 15px;
+      width: 350px;
+      display: inline-table;
+      margin: 10px;
+      border-radius: 15px;
+      text-align: center;
+}
+
+#menu-index ul li{
+      padding: 15px;
+      margin: 10px;
+      vertical-align:middle;
+      text-align: center;
+    border-top: #fff 1px solid;
+    padding-top:15px;
+}
+
+#menu-index ul li a{
+      font-size: 13px;
+      color: #FFF!important;
+      font-weight: 100;
+}
+
+#encuesta table td{
+    padding: 5px;
+}
+
+#encuesta table thead {
+    /*width: 25px;*/
+    font-weight: bold;
+    color: #0050ef;
+}
+
+#encuesta table td.numero{
+    width: 20px;
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)file:///C:/Users/Open%20Copy%201/Videos/prepa%20en%20linea.html -->
+<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1">
+        <!--<script type="text/javascript" src="/resources/js/jquery/jquery.min.js"></script>-->
+        <!--[if lt IE 9]>
+        <script src="/resources/js/jquery/jquery-1.10.2.js"></script>
+                <![endif]-->
+        <!--[if gte IE 9]><!-->
+        <script type="text/javascript" async="" src="./index_files/analytics.js.descarga"></script><script type="text/javascript" async="" src="./index_files/analytics.js(1).descarga"></script><script src="./index_files/jquery-2.0.3.js.descarga"></script>
+        <!--<![endif]-->
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+        
+
+        <link href="./index_files/metro-bootstrap.css" rel="stylesheet">
+        <link href="./index_files/metro-bootstrap-responsive.css" rel="stylesheet">
+        <link href="./index_files/iconFont.css" rel="stylesheet">
+        <link href="./index_files/docs.css" rel="stylesheet">
+        <link href="./index_files/prettify.css" rel="stylesheet">
+
+        <!-- Load JavaScript Libraries -->
+
+        <!--        	<script src="/resources/js/placeholder/jquery.placeholder.js"></script>
+                <script> $(function() {	$('input, textarea').placeholder();});</script>-->
+        <script type="text/javascript" src="./index_files/jquery.widget.min.js.descarga"></script>
+        <script type="text/javascript" src="./index_files/jquery.mousewheel.js.descarga"></script>
+        <script type="text/javascript" src="./index_files/prettify.js.descarga"></script>
+
+        <!-- Metro UI CSS JavaScript plugins -->
+        <script type="text/javascript" src="./index_files/load-metro.js.descarga"></script>
+
+        <!-- Local JavaScript -->
+        <script type="text/javascript" src="./index_files/docs.js.descarga"></script>
+        <script type="text/javascript" src="./index_files/github.info.js.descarga"></script>
+
+        <script type="text/javascript" src="./index_files/metro.min.js.descarga"></script>
+
+
+        <script type="text/javascript" src="./index_files/util.js.descarga"></script>
+        <link href="./index_files/siga.css" rel="stylesheet">
+
+        <script type="text/javascript" src="./index_files/metro-datepicker.js.descarga"></script>
+        <script type="text/javascript" src="./index_files/metro-calendar.js.descarga"></script>
+
+        <!--  DIALOG MESSAGES      -->
+        <link href="./index_files/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <script src="./index_files/bootstrap.min.js.descarga"></script>
+        <link rel="stylesheet" type="text/css" href="./index_files/prettify.css">
+        <link href="./index_files/bootstrap-dialog.min.css" rel="stylesheet" type="text/css">
+        <script src="./index_files/bootstrap-dialog.min.js.descarga"></script>
+        <!--  END DIALOG MESSAGES      -->
+        <script src="./index_files/script.js.descarga"></script>
+        <link href="./index_files/styles.css" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="./index_files/styles(1).css" type="text/css">
+	<script src="./index_files/utils.js.descarga" type="text/javascript"></script> 
+
+        
+        <!--   DATATABLES     -->
+        <script type="text/javascript" src="./index_files/jquery-1.10.2.min.js.descarga"></script>
+        <script type="text/javascript" src="./index_files/jquery.dataTables.js.descarga"></script>
+        <link href="./index_files/jquery.dataTables.css" rel="stylesheet">
+
+        <script type="text/javascript" src="./index_files/jquery-ui.js.descarga"></script>
+        <link rel="stylesheet" type="text/css" href="./index_files/jquery-ui.css">
+        <!--  FIN DATATABLES     -->
+
+
+        <!-- Add mousewheel plugin (this is optional) -->
+        <!--	<script type="text/javascript" src="../lib/jquery.mousewheel-3.0.6.pack.js"></script>-->
+
+        <!-- Add fancyBox main JS and CSS files -->
+        <script type="text/javascript" src="./index_files/jquery.fancybox.js.descarga"></script>
+        <link rel="stylesheet" type="text/css" href="./index_files/jquery.fancybox.css" media="screen">
+
+        <!-- Add Button helper (this is optional) -->
+        <link rel="stylesheet" type="text/css" href="./index_files/jquery.fancybox-buttons.css">
+        <script type="text/javascript" src="./index_files/jquery.fancybox-buttons.js.descarga"></script>
+
+        <!-- Add Thumbnail helper (this is optional) -->
+        <link rel="stylesheet" type="text/css" href="./index_files/jquery.fancybox-thumbs.css">
+        <script type="text/javascript" src="./index_files/jquery.fancybox-thumbs.js.descarga"></script>
+
+        <!-- Add Media helper (this is optional) -->
+        <script type="text/javascript" src="./index_files/jquery.fancybox-media.js.descarga"></script>
+
+        
+        <script>
+            $(document).ready(function () {
+
+                $("#listado").hide();
+
+                $("#botonBusca").click(function () {
+                    if ($.fn.dataTable.isDataTable('#listado')) {
+                        table = $('#listado').DataTable();
+                        table.destroy();
+                    }
+
+
+                    if ($("#folio").val().length == 0) {
+                        BootstrapDialog.show({
+                            title: 'Búsqueda de alumnos',
+                            message: 'Es necesario especificar por lo menos uno de los siguientes campos: folio del Alumno o folio del Certificado...'
+                        });
+                    } else {
+                        $("#listado").show();
+                        table = $('#listado').DataTable({
+                            "ajax": '/ajax/buscaAjaxCertificados.action?consultaPublica=true&folioAlumno=' + $("#folio").val(),
+                            "bSort": false,
+//                            "aoColumnDefs": [
+//                                {"sClass": "alignCenter",
+//                                    "aTargets": "_all"
+//                                }
+//                            ],
+                            "columnDefs": [
+                                {
+                                    "targets": [3],
+                                    "visible": false,
+                                    "searchable": false
+                                }
+                            ],
+                            "language": {
+                                "lengthMenu": "Mostrando _MENU_ registros por página",
+                                "zeroRecords": "No se encontraron registros",
+                                "info": "Mostrando página _PAGE_ de _PAGES_",
+                                "infoEmpty": "No existen registros disponibles",
+                                "search": "Búsqueda rápida:",
+                                "paginate": {
+                                    "first": "Primero",
+                                    "last": "Último",
+                                    "next": "Siguiente",
+                                    "previous": "Anterior"
+                                },
+                                "loadingRecords": "Cargando...",
+                                "processing": "Procesando...",
+                                "infoFiltered": "(filtered from _MAX_ total records)"
+                            }
+                        });
+
+                        $('#listado_length').hide();
+                        $('#listado_filter').hide();
+                        $('#listado_info').hide();
+                        $('#listado_paginate').hide();
+
+                    }
+
+                });
+
+                $('.fancybox').fancybox({
+                    autoSize: true
+                });
+
+
+            });
+        </script>
+        <style type="text/css">
+            .alignCenter {text-align: center}
+        </style>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async="" src="./index_files/js"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-52355703-31');
+        </script>
+    <script src="./index_files/metro.min.js.descarga"></script><style type="text/css">.fancybox-margin{margin-right:0px;}</style><script src="file:///C:/resources/js/metro.min.js"></script><style type="text/css">.fancybox-margin{margin-right:17px;}</style></head>
+    <body class="metro" style="">
+
+        
+            <div class="container">
+                <div class="fileTable">
+                    <div id="row">
+                        <div id="col" width="50%">
+                            <img alt="SEMS" width="50%" src="./index_files/logosep.png">
+                        </div>
+                        <div id="col" width="50%" style="text-align: right">
+                            <img alt="Prepa en Línea SEMS" width="20%" src="./index_files/logo-prepa-en-linea.jpeg">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+            <div class="container">
+            <h1 class="morado"> &nbsp;Verificación de Certificados</h1>
+            <h2> &nbsp;Preparatoria en Línea - SEP</h2>
+
+
+            <fieldset>
+                <legend>Indicaciones</legend>
+                <p>En el siguiente recuadro, deberás introducir el Folio del certificado que deseas verificar. (Ver ejemplo de ubicación de <a class="fancybox fancybox.iframe" href="http://sigaprep.prepaenlinea.sep.gob.mx/resources/images/ejemplofolio.png">Folio</a>)</p>
+                <div class="grid ">
+                    <div class="row">
+                        <div class="span7">
+                            <div class="input-control text" data-role="input-control">
+                                
+
+<div id="wwgrp_folio" class="wwgrp">
+<span id="wwlbl_folio" class="wwlbl"><label for="folio" class="label">Folio:</label></span>
+    <span id="wwctrl_folio" class="wwctrl">
+<input type="text" name="folio" value="125873-3244-343525-2345" id="folio">
+
+
+</span>
+</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <input type="button" name="botonBusca" id="botonBusca" value="buscar">
+            </fieldset>
+
+<thead>
+            
+ <div class="col-md-2" id="colNombre">
+ <h6><b>ID:</b></h6>
+ <h6><b>5564684</b></h6>
+			</div>
+			 <div class="col-md-1" id="colNombre">
+      <h6><b>FOTO:</b></h6>
+      <p> <img alt="123.png" width="150%" src="./index_files/123.png"></p> 
+			</div>
+			 <div class="col-md-2" id="colNombre">
+      <h6><b>Nombres:</b></h6>
+      <h6><b>ROCIO DE LOS ANGELES</b></h6>
+      <h6><b>GUEVARA POBLANO</b></h6>
+			</div>
+			 <div class="col-md-2" id="colNombre">
+      <h6><b>certificado:</b></h6>
+	  <a href="http://sigaprep.prepaenlinea.sep.gob.mx/certificado/verificacion.action">PDF<a/>
+	  </div>
+      <div class="col-md-2" id="colNombre">
+      <h6><b>folio digital</b></h6>
+      <h6><b>24684415-</b></h6>
+      <h6><b>adasd6435-</b></h6>
+      <h6><b>ada4464354</b></h6>
+			</div>
+			 <div class="col-md-2" id="colNombre">
+      <h6><b>Certificado SEP:</b></h6>
+      <h6><b>0654546465413465</b></h6>
+	  </div>
+	  <div>
+	  <div>
+	  </div>
+	  
+	  	
+					
+                    </tr>
+                </thead>
+            </table>
+ 
+
+        </div>
+       
+        </div>
+        <div>&nbsp;</div>
+
+            <div class="cleared"></div>
+            
+
+
+
+
+
+
+        
+        <!-- VersionPortaltrue -->
+    
+
+</body></html>
